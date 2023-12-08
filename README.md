@@ -35,10 +35,10 @@ int main() {
     cout << "* Welcome to Spicy Kitchen *" << endl;
     cout << "If you are an existing user, enter 'l' for login." << endl;
     cout << "If you don't have an account, enter 'r' for registration." << endl;
-    char choice;
-    cin >> choice;
+    char choice1;
+    cin >> choice1;
 
-    switch (choice) {
+    switch (choice1) {
     case 'l':
         login();
         break;
@@ -52,12 +52,12 @@ int main() {
     displayUsers();  // Display users after login or registration
     return 0;
 }
-int choice;
+int choice2;
     do {
         displayMenu();
-        cin >> choice;
+        cin >> choice2;
 
-        switch (choice) {
+        switch (choice2) {
         case 1:
             burgers();
             break;
@@ -80,9 +80,9 @@ int choice;
             cout << "Enter a valid value" << endl;
             break;
         }
-    } while (choice != 0);
+    } while (choice2 != 0);
 
-    cout << "Total Price: Rs" << total_price << endl;
+    cout << "Total Price: Rs" << total_price << endl;}
 
 void registration() {
     cout << "Enter your name: ";
