@@ -12,7 +12,7 @@ struct customer_detail {
 };
 float total_price = 0; // Initialize total_price
  void displayMenu();
- void burger();
+ void burgers();
 void fries();
  void drinks();
  void desserts();
@@ -83,6 +83,7 @@ int choice2;
     } while (choice2 != 0);
 
     cout << "Total Price: Rs" << total_price << endl;
+    return 0;
     }
 
 void registration() {
