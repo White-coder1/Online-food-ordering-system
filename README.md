@@ -51,7 +51,7 @@ int main() {
     }
     displayUsers();  // Display users after login or registration
     return 0;
-}
+
 int choice2;
     do {
         displayMenu();
@@ -82,7 +82,8 @@ int choice2;
         }
     } while (choice2 != 0);
 
-    cout << "Total Price: Rs" << total_price << endl;}
+    cout << "Total Price: Rs" << total_price << endl;
+    }
 
 void registration() {
     cout << "Enter your name: ";
