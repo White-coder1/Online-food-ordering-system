@@ -247,10 +247,13 @@ void drinks(){
             break;
         case 4:
             total_price +=mw;
+            break;
         case 5:
             total_price +=mm;
+            break;
         case 6:
             total_price += pc;
+            break;
                 
         }
     } while (choice != 0);
@@ -287,8 +290,10 @@ void desserts(){
             break;
         case 4:
             total_price +=cs;
+            break;
         case 5:
             total_price +=ns;
+            break;
                 
         }
     } while (choice != 0);
