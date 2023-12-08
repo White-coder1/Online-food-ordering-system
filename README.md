@@ -12,10 +12,10 @@ struct customer_detail {
 };
 float total_price = 0; // Initialize total_price
 displayMenu();
-Burger();
-fries();
-drinks();
-desserts();
+ void Burger();
+void fries();
+ void drinks();
+ void desserts();
 
 customer_detail customers[10000];
 
