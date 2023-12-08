@@ -10,6 +10,12 @@ struct customer_detail {
     string password;
     string address;
 };
+float total_price = 0; // Initialize total_price
+displayMenu();
+Burger();
+fries();
+drinks();
+desserts();
 
 customer_detail customers[10000];
 
@@ -46,6 +52,37 @@ int main() {
     displayUsers();  // Display users after login or registration
     return 0;
 }
+int choice;
+    do {
+        displayMenu();
+        cin >> choice;
+
+        switch (choice) {
+        case 1:
+            Burgers();
+            break;
+
+        case 2:
+            fries();
+            break;
+                
+        case 3:
+            drinks();
+            break;
+                
+            case 4:
+            desserts();
+            break;
+                
+            case 0:
+            break; // Exit the loop when the user finishes ordering
+        default:
+            cout << "Enter a valid value" << endl;
+            break;
+        }
+    } while (choice != 0);
+
+    cout << "Total Price: Rs" << total_price << endl;
 
 void registration() {
     cout << "Enter your name: ";
@@ -105,6 +142,59 @@ void displayUsers() {
     }
 }
 
+void fries(){
+
+cout<<"Fries: "<<endl;
+ 
+ cout<<"1. Simple Fries      Rs350"<<endl;
+ int sf = 350;
+ cout<<"2. Curly Fries       Rs400"<<endl;
+ int cf = 400;
+ cout<<"3. Mayo Garlic Fries Rs500"<<endl;
+ int mgf = 500;
+ 
+    int choice;
+    do {
+        cout << "Enter your choice in fries (0 to finish ordering): ";
+        cin >> choice;
 
 
 
+
+void desserts(){
+    cout<<"Desserts: "<<endl;
+    
+    cout<<"1.Molten Lava Cake         Rs600"<<endl;
+    int mlc=600;
+    cout<<"2.Lotus Cheese Cake        Rs650"<<endl;
+    int icc=650;
+    cout<<"3.Red Velvet Cake          Rs500 "<<endl;
+    int rvc=500;
+    cout<<"4.Cookie Skillet           Rs999 "<<endl;
+    int cs=999;
+    cout<<"5.Nutella Sundae           Rs350  "<<endl;
+    int ns=350;
+
+    int choice;
+    do {
+        cout << "Enter your choice in drinks (0 to finish ordering): ";
+        cin >> choice;
+
+        switch (choice) {
+        case 1:
+            total_price += mlc;
+            break;
+        case 2:
+            total_price += icc;
+            break;
+        case 3:
+            total_price += rvc;
+            break;
+        case 4:
+            total_price +=cs;
+        case 5:
+            total_price +=ns;
+                
+        }
+    } while (choice != 0);
+}
