@@ -11,8 +11,8 @@ struct customer_detail {
     string address;
 };
 float total_price = 0; // Initialize total_price
-displayMenu();
- void Burger();
+ void displayMenu();
+ void burger();
 void fries();
  void drinks();
  void desserts();
@@ -59,7 +59,7 @@ int choice;
 
         switch (choice) {
         case 1:
-            Burgers();
+            burgers();
             break;
 
         case 2:
@@ -150,7 +150,7 @@ void displayMenu() {
     cout << " ENTER 0 TO finish ordering " << endl;
 }
 
-void Burgers() {
+void burgers() {
     cout << "Burgers: " << endl;
     cout << "1. Chicken Burger                  Rs500" << endl;
     int chb = 500;
