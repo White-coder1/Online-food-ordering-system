@@ -141,6 +141,48 @@ void displayUsers() {
         }
     }
 }
+void displayMenu() {
+    cout << "*** Menu ****" << endl;
+    cout << " ENTER 1 TO display burgers " << endl;
+    cout << " ENTER 2 TO display fries " << endl;
+    cout << " ENTER 3 TO display drinks " << endl;
+    cout << " ENTER 4 TO display desserts " << endl;
+    cout << " ENTER 0 TO finish ordering " << endl;
+}
+
+void Burgers() {
+    cout << "Burgers: " << endl;
+    cout << "1. Chicken Burger                  Rs500" << endl;
+    int chb = 500;
+    cout << "2. Beef Burger                     Rs1000" << endl;
+    int bb = 700;
+    cout << "3. Spicy Chicken Burger            Rs600" << endl;
+    int scb = 600;
+    cout << "4. Fish-O-Fillet Burger            Rs400" << endl;
+    int ffb = 400;
+
+    int choice;
+    do {
+        cout << "Enter your choice burgers (0 to finish ordering): ";
+        cin >> choice;
+
+        switch (choice) {
+        case 1:
+            total_price += chb;
+            break;
+        case 2:
+            total_price += bb;
+            break;
+        case 3:
+            total_price += scb;
+            break;
+        case 4:
+            total_price += ffb;
+            break;
+        }
+    } while (choice != 0);
+}
+
 
 void fries(){
 
@@ -158,8 +200,61 @@ cout<<"Fries: "<<endl;
         cout << "Enter your choice in fries (0 to finish ordering): ";
         cin >> choice;
 
+ switch (choice) {
+        case 1:
+            total_price += sf;
+            break;
+        case 2:
+            total_price += cf;
+            break;
+        case 3:
+            total_price += mgf;
+            break;
+        }
+    } while (choice != 0);
+}
 
+void drinks(){
+    cout<<"Drinks: "<<endl;
+ 
+ cout<<"1.Coca Cola         Rs200"<<endl;
+ int cc=200;
+ cout<<"2.Sprite            Rs200"<<endl;
+ int spr=200;
+ cout<<"3.Fanta             Rs200"<<endl;
+ int fant=200;
+ cout<<"4.Mineral Water     Rs100"<<endl;
+ int mw=100;
+ cout<<"5.Mint Margarita    Rs800"<<endl;
+ int mm=800;
+ cout<<"6.Pina Colada       Rs800"<<endl;
+ int pc=800;
+ 
+    int choice;
+    do {
+        cout << "Enter your choice in drinks (0 to finish ordering): ";
+        cin >> choice;
 
+        switch (choice) {
+        case 1:
+            total_price += cc;
+            break;
+        case 2:
+            total_price += spr;
+            break;
+        case 3:
+            total_price += fant;
+            break;
+        case 4:
+            total_price +=mw;
+        case 5:
+            total_price +=mm;
+        case 6:
+            total_price += pc;
+                
+        }
+    } while (choice != 0);
+}
 
 void desserts(){
     cout<<"Desserts: "<<endl;
