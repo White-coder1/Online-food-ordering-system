@@ -182,7 +182,125 @@ void burgers() {
             total_price += bb;
             break;
         case 3:
-   
+               total_price += scb;
+            break;
+        case 4:
+            total_price += ffb;
+            break;
+        }
+    } while (choice != 0);
+}
+void fries() {
+    cout << "Fries: " << endl;
+    cout << "1. Simple Fries      Rs350" << endl;
+    int sf = 350;
+    cout << "2. Curly Fries       Rs400" << endl;
+    int cf = 400;
+    cout << "3. Mayo Garlic Fries Rs500" << endl;
+    int mgf = 500;
+
+    int choice;
+    do {
+        cout << "Enter your choice in fries (0 to finish ordering): ";
+        cin >> choice;
+
+        switch (choice) {
+        case 1:
+            total_price += sf;
+            break;
+        case 2:
+            total_price += cf;
+            break;
+        case 3:
+            total_price += mgf;
+            break;
+        }
+    } while (choice != 0);
+}
+
+void drinks() {
+    cout << "Drinks: " << endl;
+    cout << "1.Coca Cola         Rs200" << endl;
+    int cc = 200;
+    cout << "2.Sprite            Rs200" << endl;
+    int spr = 200;
+    cout << "3.Fanta             Rs200" << endl;
+    int fant = 200;
+    cout << "4.Mineral Water     Rs100" << endl;
+    int mw = 100;
+    cout << "5.Mint Margarita    Rs800" << endl;
+    int mm = 800;
+    cout << "6.Pina Colada       Rs800" << endl;
+    int pc = 800;
+
+    int choice;
+    do {
+        cout << "Enter your choice in drinks (0 to finish ordering): ";
+        cin >> choice;
+
+        switch (choice) {
+        case 1:
+            total_price += cc;
+            break;
+        case 2:
+            total_price += spr;
+            break;
+        case 3:
+            total_price += fant;
+            break;
+        case 4:
+            total_price += mw;
+            break;
+        case 5:
+            total_price += mm;
+            break;
+        case 6:
+            total_price += pc;
+            break;
+        }
+    } while (choice != 0);
+}
+
+void desserts() {
+    cout << "Desserts: " << endl;
+    cout << "1.Molten Lava Cake         Rs600" << endl;
+    int mlc = 600;
+    cout << "2.Lotus Cheese Cake        Rs650" << endl;
+    int icc = 650;
+    cout << "3.Red Velvet Cake          Rs500 " << endl;
+    int rvc = 500;
+    cout << "4.Cookie Skillet           Rs999 " << endl;
+    int cs = 999;
+    cout << "5.Nutella Sundae           Rs350  " << endl;
+    int ns = 350;
+
+    int choice;
+    do {
+        cout << "Enter your choice in desserts (0 to finish ordering): ";
+        cin >> choice;
+       
+       
+        switch (choice) {
+        case 1:
+            total_price += mlc;
+            break;
+        case 2:
+            total_price += icc;
+            break;
+        case 3:
+            total_price += rvc;
+            break;
+        case 4:
+            total_price += cs;
+            break;
+        case 5:
+            total_price += ns;
+            break;
+        }
+
+    } while (choice != 0);
+}
+
 
 
 
