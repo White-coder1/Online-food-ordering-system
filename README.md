@@ -2,7 +2,9 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
+//add login unsucessful condition to int main
+//receipt function
+//ask user to choose between pick up or delivery
 struct customer_detail {
     string name;
     string email;
@@ -25,7 +27,7 @@ int main() {
     bool value1 = false;
 
     customer_detail customers[100];
-    // Initializing the customers array
+    // Initializing the customers info array
     for (int k = 0; k < 100; k++) {
         customers[k].name = "0";
         customers[k].email = "0";
@@ -39,13 +41,17 @@ int main() {
 
     char choice1;
     cin >> choice1;
-    choice1 = toupper(choice1);
-
+    choice1 = tolower(choice1);
+    while(choice1 != 'r' && choice1 != 'l'){
+    cout<<"Invalid character.Enter again."<<endl;
+    cin>>choice1;
+    }
+    
     switch (choice1) {
-    case 'L':
+    case 'l':
         value1 = login(customers);
         break;
-    case 'R':
+    case 'r':
         registration(customers);
         break;
     default:
@@ -54,8 +60,8 @@ int main() {
     }
 
     int choice2;
-    if (value1 == true) {
-        do {
+    do {
+      do{
             cout << "Login successful" << endl;
             displayMenu();
             cin >> choice2;
@@ -83,10 +89,8 @@ int main() {
         } while (choice2 != 0);
 
         cout << "Total Price: Rs" << total_price << endl;
+} while(value1==true);
 
-    } else {
-    cout << "login unsucessful" << endl;
-}
         return 0;
 }
 
@@ -140,8 +144,6 @@ bool login(customer_detail customer[100]) {
         }
         else if (login_name == customer[i].name   || login_password == customer[i].password) {
             value = false;
-            
-
             break;
         }
     }
