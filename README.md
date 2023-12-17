@@ -2,9 +2,10 @@
 #include <iostream>
 #include <string>
 using namespace std;
-//add login unsucessful condition to int main
-//receipt function
-//ask user to choose between pick up or delivery
+
+const int MAX_CUSTOMERS = 1000;
+const int MAX_ORDERS = 1000;
+
 struct customer_detail {
     string name;
     string email;
@@ -30,33 +31,26 @@ int registration(customer_detail customers[], int& customerCount);
 int login(customer_detail customers[], int customerCount);
 string getDeliveryOption();
 
-
-void registration(customer_detail customers[100]);  //// should be removed
-bool login(customer_detail customers[100]);         //// should be removed
-
 int main() {
-    bool value1 = false;
+customer_detail customers[MAX_CUSTOMERS];
+order_detail orders[MAX_ORDERS];
+char choice1 = '\0';
+int choice2 = 0;
+int customerCount = 0;
+int orderCount = 0;
+int loggedInCustomerIndex = 0;
 
-    customer_detail customers[100];
-    // Initializing the customers info array
-    for (int k = 0; k < 100; k++) {
-        customers[k].name = "0";
-        customers[k].email = "0";
-        customers[k].password = "0";
-        customers[k].address = "0";
-    }
+cout << "* Welcome to Spicy Kitchen *" << endl;
+cout << "If you are an existing user, enter 'l' for login." << endl;
+cout << "If you don't have an account, enter 'r' for registration." << endl;
 
-    cout << "* Welcome to Spicy Kitchen *" << endl;
-    cout << "If you are an existing user, enter 'l' for login." << endl;
-    cout << "If you don't have an account, enter 'r' for registration." << endl;
-
-    char choice1;
-    cin >> choice1;
-    choice1 = tolower(choice1);
-    while(choice1 != 'r' && choice1 != 'l'){
-    cout<<"Invalid character.Enter again."<<endl;
+char choice1;
+cin >> choice1;
+choice1 = tolower(choice1);
+ while(choice1 != 'r' && choice1 != 'l'){
+   cout<<"Invalid character.Enter again."<<endl;
     cin>>choice1;
-    }
+   }
     switch (choice1) {
     case 'l':{
         loggedInCustomerIndex = login(customers, customerCount);
@@ -64,29 +58,18 @@ int main() {
 		}
     case 'r':{
         loggedInCustomerIndex = registration(customers, customerCount);
+	loggedInCustomerIndex = registration(customers, customerCount);
         break;
 		}
     default:{
         cout << "Invalid choice" << endl;
         break;
-		}
-    }
-    switch (choice1) {   //// remove as well
-    case 'l':
-        value1 = login(customers);
-        break;
-    case 'r':
-        registration(customers);
-        break;
-    default:
-        cout << "Invalid choice" << endl;
-        break;
+	}
     }
 
-    int choice2;
-    do {
+bool ordering = true; // Flag to control ordering loop
+while (loggedInCustomerIndex != -1 && ordering) {
       do{
-            cout << "Login successful" << endl;
             displayMenu();
             cin >> choice2;
 
@@ -106,75 +89,73 @@ int main() {
 
             case 0:
             generateReceipt(orders, orderCount, getDeliveryOption(), customers[loggedInCustomerIndex]);
+	    ordering = false;//set the flag to exit the ordering loop.
             break;
             default:
                 cout << "Enter a valid value" << endl;
                 break;
             }
 
-        } while (choice2 != 0);
-
-       
-} while(value1==true);   /// remove 
-
-        return 0;
+        } while (choice2 != 0 && ordering);
+return 0;
 }
+int registration(customer_detail customers[], int& customerCount) {
+    cout << "REGISTRATION" << endl;
+    customer_detail newCustomer;
 
-void registration(customer_detail customer[100]) {
-    cout << "*REGISTRATION*" << endl;
     cout << "Enter your name: ";
-    string customer_name;
-    cin >> customer_name;
+    cin.ignore();
+    getline(cin, newCustomer.name);
 
     cout << "Enter your email address: ";
-    string customer_email;
-    cin >> customer_email;
+    cin >> newCustomer.email;
 
     cout << "Enter your password: ";
-    string customer_password;
-    cin >> customer_password;
+    cin >> newCustomer.password;
 
     cout << "Enter your address: ";
-    string customer_address;
-    cin >> customer_address;
+    cin.ignore();
+    getline(cin, newCustomer.address);
 
-    for (int i = 0; i < 100; i++) {
-        if (customer[i].name == "0") {
-            customer[i].name = customer_name;
-            customer[i].email = customer_email;
-            customer[i].password = customer_password;
-            customer[i].address = customer_address;
-            cout << "Registration successful" << endl;
-            break;
-        }
+    if (customerCount < MAX_CUSTOMERS) {
+        customers[customerCount++] = newCustomer;
+        
+        cout << "Registration successful" << endl;
+        return customerCount - 1; // Return the index of the newly registered customer
     }
-    login(customer);
+    else {
+        cout << "Maximum number of customers reached" << endl;
+        return -1; // Return -1 to indicate registration failure
+    }
 }
+int login(customer_detail customers[], int customerCount) {
+    int loggedInCustomerIndex = -1;
 
-bool login(customer_detail customer[100]) {
-    bool value = false; // Initialize value to false
+    cout << "LOGIN" << endl;
+    cout << "Enter your email: ";
+    string login_email;
+    cin >> login_email;
 
-    cout << "*LOGIN*" << endl;
-    cout << "Enter your name: " << endl;
-    string login_name;
-    cin >> login_name;
-
-    cout << "Enter your password: " << endl;
+    cout << "Enter your password: ";
     string login_password;
     cin >> login_password;
 
-    for (int i = 0; i < 100; i++) {
-        if (login_name == customer[i].name && login_password == customer[i].password) {
-            value = true;
-            break;
-        }
-        else if (login_name == customer[i].name   || login_password == customer[i].password) {
-            value = false;
+    for (int i = 0; i < customerCount; ++i) {
+        if (login_email == customers[i].email && login_password == customers[i].password) {
+            loggedInCustomerIndex = i;
             break;
         }
     }
 
-    return value;
+    if (loggedInCustomerIndex == -1) {
+        cout << "Login unsuccessful" << endl;
+        cout << "Exit program" << endl;
+    }
+    else {
+        cout << "Login successful" << endl;
+    }
+
+    return loggedInCustomerIndex;
 }
 string getDeliveryOption() {
     cout << "Choose delivery option:" << endl;
