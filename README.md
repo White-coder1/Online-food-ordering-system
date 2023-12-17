@@ -75,16 +75,16 @@ while (loggedInCustomerIndex != -1 && ordering) {
 
             switch (choice2) {
             case 1:
-                burgers();        /// add &ordercount in ()
+                burgers(orderCount);        /// add &ordercount in ()
                 break;
             case 2:
-                fries();
+                fries(orderCount);
                 break;
             case 3:
-                drinks();
+                drinks(orderCount);
                 break;
             case 4:
-                desserts();
+                desserts(orderCount);
                 break;
 
             case 0:
