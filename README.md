@@ -114,8 +114,8 @@ int main() {
 
         } while (choice2 != 0);
 
-        cout << "Total Price: Rs" << total_price << endl;
-} while(value1==true);
+       
+} while(value1==true);   /// remove 
 
         return 0;
 }
