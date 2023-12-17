@@ -103,8 +103,10 @@ int main() {
             case 4:
                 desserts();
                 break;
+
             case 0:
-                break; // Exit the loop when the user finishes ordering
+            generateReceipt(orders, orderCount, getDeliveryOption(), customers[loggedInCustomerIndex]);
+            break;
             default:
                 cout << "Enter a valid value" << endl;
                 break;
