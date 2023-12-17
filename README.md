@@ -12,16 +12,27 @@ struct customer_detail {
     string address;
 };
 
+struct order_detail {
+    string itemName;
+    int quantity;
+    float price;
+};
+
 float total_price = 0; // Initialize total_price
 
 void displayMenu();
-void burgers();
-void fries();
-void drinks();
-void desserts();
+void burgers(int &ordercount);
+void fries(int &ordercount);
+void drinks(int &ordercount);
+void desserts(int &ordercount);
+void generateReceipt(order_detail orders[], int orderCount, string deliveryOption, const customer_detail& customer);
+int registration(customer_detail customers[], int& customerCount);
+int login(customer_detail customers[], int customerCount);
+string getDeliveryOption();
 
-void registration(customer_detail customers[100]);
-bool login(customer_detail customers[100]);
+
+void registration(customer_detail customers[100]);  //// should be removed
+bool login(customer_detail customers[100]);         //// should be removed
 
 int main() {
     bool value1 = false;
@@ -46,8 +57,21 @@ int main() {
     cout<<"Invalid character.Enter again."<<endl;
     cin>>choice1;
     }
-    
     switch (choice1) {
+    case 'l':{
+        loggedInCustomerIndex = login(customers, customerCount);
+        break;
+		}
+    case 'r':{
+        loggedInCustomerIndex = registration(customers, customerCount);
+        break;
+		}
+    default:{
+        cout << "Invalid choice" << endl;
+        break;
+		}
+    }
+    switch (choice1) {   //// remove as well
     case 'l':
         value1 = login(customers);
         break;
@@ -68,7 +92,7 @@ int main() {
 
             switch (choice2) {
             case 1:
-                burgers();
+                burgers();        /// add &ordercount in ()
                 break;
             case 2:
                 fries();
@@ -150,7 +174,34 @@ bool login(customer_detail customer[100]) {
 
     return value;
 }
+string getDeliveryOption() {
+    cout << "Choose delivery option:" << endl;
+    cout << "1. Pickup" << endl;
+    cout << "2. Delivery" << endl;
 
+    int option;
+    cin >> option;
+
+    return (option == 2) ? "Delivery" : "Pickup";
+}
+
+void generateReceipt(order_detail orders[], int orderCount, string deliveryOption, const customer_detail& customer) {
+    cout << "\n** Receipt **\n";
+
+    if (orderCount == 0) {
+        cout << "No items ordered.\n";
+    } else {
+        cout << "Customer Name: " << customer.name << endl;
+        cout << "Items Ordered: " << orderCount<<endl;
+          cout << "Address: " << customer.address<<endl;
+        /*for (int i = 0; i < orderCount; ++i) {
+            cout << orders[i].quantity << "x " << orders[i].itemName << " - Rs" << orders[i].price * orders[i].quantity << endl;
+        }*/
+    }
+    cout << "Delivery Option: " << deliveryOption << endl;
+    cout << "Total Price: Rs" << total_price << endl;
+
+}
 void displayMenu() {
     cout << "* Menu **" << endl;
     cout << " ENTER 1 TO display burgers " << endl;
