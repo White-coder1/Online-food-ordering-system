@@ -215,7 +215,7 @@ void burgers(order_detail orders[],int &ordercount) {
     cout << "1. Chicken Burger                  Rs500" << endl;
     int chb = 500;
     cout << "2. Beef Burger                     Rs1000" << endl;
-    int bb = 700;
+    int bb = 1000;
     cout << "3. Spicy Chicken Burger            Rs600" << endl;
     int scb = 600;
     cout << "4. Fish-O-Fillet Burger            Rs400" << endl;
