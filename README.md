@@ -283,6 +283,161 @@ void fries(int& ordercount) {    // &ordercount means address of the variable in
             int num2;
             cin >> num2;
 
+               total_price += num2 * cf;
+            ordercount += num2;
+            break;
+        }
+        case 3: {
+            cout << "How many mayo garlic fries do you want? ";
+            int num3;
+            cin >> num3;
+            total_price += num3 * mgf;
+            ordercount += num3;
+            break;
+        }
+        }
+    } while (choice != 0);
+}
+
+void drinks(int& ordercount) {
+    cout << "Drinks: " << endl;
+    cout << "1.Coca Cola         Rs200" << endl;
+    int cc = 200;
+    cout << "2.Sprite            Rs200" << endl;
+    int spr = 200;
+    cout << "3.Fanta             Rs200" << endl;
+    int fant = 200;
+    cout << "4.Mineral Water     Rs100" << endl;
+    int mw = 100;
+    cout << "5.Mint Margarita    Rs800" << endl;
+    int mm = 800;
+    cout << "6.Pina Colada       Rs800" << endl;
+    int pc = 800;
+
+    int choice;
+    do {
+        cout << "Enter your choice in drinks (0 to finish ordering): ";
+        cin >> choice;
+
+        switch (choice) {
+        case 1: {
+            cout << "How many coca colas do you want? ";
+            int num1;
+            cin >> num1;
+            total_price += num1 * cc;
+            ordercount += num1;
+            break;
+        }
+        case 2: {
+            cout << "How many sprites do you want? ";
+            int num2;
+            cin >> num2;
+            total_price += num2 * spr;
+            ordercount += num2;
+            break;
+        }
+        case 3: {
+            cout << "How many fantas do you want? ";
+            int num3;
+            cin >> num3;
+            total_price += num3 * fant;
+            ordercount += num3;
+            break;
+        }
+        case 4: {
+            cout << "How many mineral waters do you want? ";
+            int num4;
+            cin >> num4;
+            total_price += num4 * mw;
+            ordercount += num4;
+            break;
+        }
+        case 5: {
+            cout << "How many mint margaritas do you want? ";
+            int num5;
+            cin >> num5;
+            total_price += num5 * mm;
+            ordercount += num5;
+            break;
+        }
+        case 6: {
+            cout << "How many pina coladas do you want? ";
+            int num6;
+            cin >> num6;
+            total_price += num6 * pc;
+            ordercount += num6;
+            break;
+        }
+        }
+    } while (choice != 0);
+}
+
+void desserts(int& ordercount) {
+    cout << "Desserts: " << endl;
+    cout << "1.Molten Lava Cake         Rs600" << endl;
+    int mlc = 600;
+    cout << "2.Lotus Cheese Cake        Rs650" << endl;
+    int lcc = 650;
+    cout << "3.Red Velvet Cake          Rs500 " << endl;
+    int rvc = 500;
+    cout << "4.Cookie Skillet           Rs999 " << endl;
+    int cs = 999;
+    cout << "5.Nutella Sundae           Rs350  " << endl;
+    int ns = 350;
+
+    int choice;
+    do {
+        cout << "Enter your choice in desserts (0 to finish ordering): ";
+        cin >> choice;
+
+        switch (choice) {
+        case 1: {
+            cout << "How many molten lava cakes do you want? ";
+            int num1;
+            cin >> num1;
+            total_price += num1 * mlc;
+            ordercount += num1;
+            break;
+        }
+        case 2: {
+            cout << "How many lotus cheese cakes do you want? ";
+            int num2;
+            cin >> num2;
+            total_price += num2 * lcc;
+            ordercount += num2;
+            break;
+        }
+        case 3: {
+            cout << "How many red velvet cakes do you want? ";
+            int num3;
+            cin >> num3;
+            total_price += num3 * rvc;
+            ordercount += num3;
+            break;
+        }
+        case 4: {
+            cout << "How many cookie skillets do you want? ";
+            int num4;
+            cin >> num4;
+            total_price += num4 * cs;
+            ordercount += num4;
+            break;
+        }
+        case 5: {
+            cout << "How many nutella sundaes do you want? ";
+            int num5;
+            cin >> num5;
+            total_price += num5 * ns;
+            ordercount += num5;
+            break;
+        }
+        }
+
+    } while (choice != 0);
+}
+
+
+
 
 
 
