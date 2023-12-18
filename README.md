@@ -176,7 +176,7 @@ string getDeliveryOption() {
 }
 
 void generateReceipt(order_detail orders[], int orderCount, string deliveryOption, const customer_detail& customer) {
-    cout << "\n**************************Receipt**************************\n";
+    cout << "\n** Receipt **\n";
 
     if (orderCount == 0) {
         cout << "No items ordered.\n";
@@ -188,8 +188,13 @@ void generateReceipt(order_detail orders[], int orderCount, string deliveryOptio
 
         for (int i = 0; i < orderCount; ++i) {
             if (orders[i].quantity > 0) {
-                cout << orders[i].quantity << "x " << orders[i].itemName << " - Rs" << orders[i].price * orders[i].quantity << endl;
+                cout << orders[i].quantity << "x " << orders[i].itemName << " - Rs" << orders[i].price << endl;
             }
+        }
+
+        total_price = 0.0;  // Reset total_price to recalculate it
+        for (int i = 0; i < orderCount; ++i) {
+            total_price += orders[i].price;
         }
     }
     cout << "Delivery Option: " << deliveryOption << endl;
@@ -264,7 +269,7 @@ void burgers(order_detail orders[],int &ordercount) {
             cin >> num4;
            orders[ordercount].itemName = "fish-0-fillet Burger";
             orders[ordercount].quantity = num4;
-            orders[ordercount].price = chb * num4;
+            orders[ordercount].price = ffb * num4;
 
             total_price += orders[ordercount].price;
             ordercount += num4;
