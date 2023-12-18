@@ -141,6 +141,148 @@ int login(customer_detail customers[], int customerCount) {
     cin >> login_name;
 
 }
+    cout << "Enter your password: ";
+    string login_password;
+    cin >> login_password;
+
+    for (int i = 0; i < customerCount; ++i) {
+        if (login_name == customers[i].name && login_password == customers[i].password) {
+            loggedInCustomerIndex = i;
+            break;
+        }
+    }
+
+    if (loggedInCustomerIndex == -1) {
+        cout << "Login unsuccessful" << endl;
+        cout << "Exit program" << endl;
+    }
+    else {
+        cout << "Login successful" << endl;
+    }
+
+    return loggedInCustomerIndex;
+}
+
+
+string getDeliveryOption() {
+    cout << "Choose delivery option:" << endl;
+    cout << "1. Pickup" << endl;
+    cout << "2. Delivery" << endl;
+
+    int option;
+    cin >> option;
+
+    return (option == 2) ? "Delivery" : "Pickup";
+}
+
+void generateReceipt(order_detail orders[], int orderCount, string deliveryOption, const customer_detail& customer) {
+    cout << "\n** Receipt **\n";
+
+    if (orderCount == 0) {
+        cout << "No items ordered.\n";
+    }
+    else {
+        cout << "Customer Name: " << customer.name << endl;
+        cout << "Items Ordered: " << orderCount << endl;
+        cout << "Address: " << customer.address << endl;
+        /*for (int i = 0; i < orderCount; ++i) {
+            cout << orders[i].quantity << "x " << orders[i].itemName << " - Rs" << orders[i].price * orders[i].quantity << endl;
+        }*/
+    }
+    cout << "Delivery Option: " << deliveryOption << endl;
+    cout << "Total Price: Rs" << total_price << endl;
+
+}
+
+void displayMenu() {
+    cout << "* Menu **" << endl;
+    cout << " ENTER 1 TO display burgers " << endl;
+    cout << " ENTER 2 TO display fries " << endl;
+    cout << " ENTER 3 TO display drinks " << endl;
+    cout << " ENTER 4 TO display desserts " << endl;
+    cout << " ENTER 0 TO finish ordering " << endl;
+}
+
+void burgers(int& ordercount) {
+    cout << "Burgers: " << endl;
+    cout << "1. Chicken Burger                  Rs500" << endl;
+    int chb = 500;
+    cout << "2. Beef Burger                     Rs1000" << endl;
+    int bb = 700;
+    cout << "3. Spicy Chicken Burger            Rs600" << endl;
+    int scb = 600;
+    cout << "4. Fish-O-Fillet Burger            Rs400" << endl;
+    int ffb = 400;
+
+    int choice;
+    do {
+        cout << "Enter your choice burgers (0 to finish ordering): ";
+        cin >> choice;
+
+        switch (choice) {
+        case 1: {
+            cout << "How many chicken burgers do you want? ";
+            int num1;
+            cin >> num1;
+            total_price += num1 * chb;
+            ordercount += num1;
+            break;
+        }
+        case 2: {
+            cout << "How many beef burgers do you want? ";
+            int num2;
+            cin >> num2;
+            total_price += num2 * bb;
+            ordercount += num2;
+            break;
+        }
+        case 3: {
+            cout << "How many spicy chicken burgers do you want? ";
+            int num3;
+            cin >> num3;
+            total_price += num3 * scb;
+            ordercount += num3;
+            break;
+        }
+        case 4: {
+            cout << "How many fish-o-fillet burgers do you want? ";
+            int num4;
+            cin >> num4;
+            total_price += num4 * ffb;
+            ordercount += num4;
+            break;
+        }
+        }
+    } while (choice != 0);
+}
+void fries(int& ordercount) {    // &ordercount means address of the variable in main/ it would make changes to the main variable too directly
+    cout << "Fries: " << endl;
+    cout << "1. Simple Fries      Rs350" << endl;
+    int sf = 350;
+    cout << "2. Curly Fries       Rs400" << endl;
+    int cf = 400;
+    cout << "3. Mayo Garlic Fries Rs500" << endl;
+    int mgf = 500;
+
+    int choice;
+    do {
+        cout << "Enter your choice in fries (0 to finish ordering): ";
+        cin >> choice;
+
+        switch (choice) {
+        case 1: {
+            cout << "How many simple fries do you want? ";
+            int num1;
+            cin >> num1;
+            total_price += num1 * sf;
+            ordercount += num1;
+            break;
+        }
+        case 2: {
+            cout << "How many curly fries do you want? ";
+            int num2;
+            cin >> num2;
+
 
 
 
