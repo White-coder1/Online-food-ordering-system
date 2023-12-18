@@ -100,8 +100,8 @@ int main() {
         } while (choice2 != 0 && ordering);
     }
     return 0;
-}                      //main ends here
-// function definitions
+}                      
+
 int registration(customer_detail customers[], int& customerCount) {
     cout << "REGISTRATION" << endl;
     customer_detail newCustomer;
@@ -140,7 +140,7 @@ int login(customer_detail customers[], int customerCount) {
     string login_name;
     cin >> login_name;
 
-}
+
     cout << "Enter your password: ";
     string login_password;
     cin >> login_password;
