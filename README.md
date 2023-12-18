@@ -137,8 +137,8 @@ int login(customer_detail customers[], int customerCount) {
 
     cout << "**************************LOGIN**************************" << endl;
     cout << "Enter your email: ";
-    string login_email;
-    cin >> login_email;
+    cin.ignore();  
+    getline(cin, login_email);
 
 
     cout << "Enter your password: ";
