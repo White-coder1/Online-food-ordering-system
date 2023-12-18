@@ -22,10 +22,10 @@ struct order_detail {
 float total_price = 0.0;
 
 void displayMenu();
-void burgers(int& ordercount);
-void fries(int& ordercount);
-void drinks(int& ordercount);
-void desserts(int& ordercount);
+void burgers(order_detail orders[], int &orderCount);
+void fries(order_detail orders[], int &orderCount);
+void drinks(order_detail orders[], int &orderCount);
+void desserts(order_detail orders[], int &orderCount);
 void generateReceipt(order_detail orders[], int orderCount, string deliveryOption, const customer_detail& customer);
 int registration(customer_detail customers[], int& customerCount);
 int login(customer_detail customers[], int customerCount);
@@ -77,16 +77,16 @@ int main() {
 
             switch (choice2) {
             case 1:
-                burgers(orderCount);
+                burgers(orders,orderCount);
                 break;
             case 2:
-                fries(orderCount);
+                fries(orders,orderCount);
                 break;
             case 3:
-                drinks(orderCount);
+                drinks(orders,orderCount);
                 break;
             case 4:
-                desserts(orderCount);
+                desserts(orders,orderCount);
                 break;
             case 0:
                 generateReceipt(orders, orderCount, getDeliveryOption(), customers[loggedInCustomerIndex]);
@@ -180,14 +180,15 @@ void generateReceipt(order_detail orders[], int orderCount, string deliveryOptio
 
     if (orderCount == 0) {
         cout << "No items ordered.\n";
-    }
-    else {
+    } else {
         cout << "Customer Name: " << customer.name << endl;
-        cout << "Items Ordered: " << orderCount << endl;
-        cout << "Address: " << customer.address << endl;
-        /*for (int i = 0; i < orderCount; ++i) {
+        cout << "Items Ordered: " << orderCount<<endl;
+          cout << "Address: " << customer.address<<endl;
+           cout << "order detail \n";
+            for (int i = 0; i < orderCount; ++i) {
             cout << orders[i].quantity << "x " << orders[i].itemName << " - Rs" << orders[i].price * orders[i].quantity << endl;
-        }*/
+        }
+       
     }
     cout << "Delivery Option: " << deliveryOption << endl;
     cout << "Total Price: Rs" << total_price << endl;
@@ -203,7 +204,7 @@ void displayMenu() {
     cout << " ENTER 0 TO finish ordering " << endl;
 }
 
-void burgers(int& ordercount) {
+void burgers(order_detail orders[],int &ordercount) {
     cout << "Burgers: " << endl;
     cout << "1. Chicken Burger                  Rs500" << endl;
     int chb = 500;
@@ -224,7 +225,11 @@ void burgers(int& ordercount) {
             cout << "How many chicken burgers do you want? ";
             int num1;
             cin >> num1;
-            total_price += num1 * chb;
+            orders[ordercount].itemName = "Chicken Burger";
+            orders[ordercount].quantity = num1;
+            orders[ordercount].price = chb * num1;
+
+            total_price += orders[ordercount].price;
             ordercount += num1;
             break;
         }
@@ -232,15 +237,24 @@ void burgers(int& ordercount) {
             cout << "How many beef burgers do you want? ";
             int num2;
             cin >> num2;
-            total_price += num2 * bb;
+            orders[ordercount].itemName = "Beef Burger";
+            orders[ordercount].quantity = num2;
+            orders[ordercount].price = bb * num2;
+
+            total_price += orders[ordercount].price;
             ordercount += num2;
+            break;
             break;
         }
         case 3: {
             cout << "How many spicy chicken burgers do you want? ";
             int num3;
             cin >> num3;
-            total_price += num3 * scb;
+         orders[ordercount].itemName = " Spicy Chicken Burger";
+            orders[ordercount].quantity = num3;
+            orders[ordercount].price = scb * num3;
+
+            total_price += orders[ordercount].price;
             ordercount += num3;
             break;
         }
@@ -248,14 +262,18 @@ void burgers(int& ordercount) {
             cout << "How many fish-o-fillet burgers do you want? ";
             int num4;
             cin >> num4;
-            total_price += num4 * ffb;
+           orders[ordercount].itemName = "fish-0-fillet Burger";
+            orders[ordercount].quantity = num4;
+            orders[ordercount].price = chb * num4;
+
+            total_price += orders[ordercount].price;
             ordercount += num4;
             break;
         }
         }
     } while (choice != 0);
 }
-void fries(int& ordercount) {    // &ordercount means address of the variable in main/ it would make changes to the main variable too directly
+void fries(order_detail orders[],int &ordercount) {    // &ordercount means address of the variable in main/ it would make changes to the main variable too directly
     cout << "Fries: " << endl;
     cout << "1. Simple Fries      Rs350" << endl;
     int sf = 350;
@@ -274,7 +292,11 @@ void fries(int& ordercount) {    // &ordercount means address of the variable in
             cout << "How many simple fries do you want? ";
             int num1;
             cin >> num1;
-            total_price += num1 * sf;
+         orders[ordercount].itemName = "simple fries";
+            orders[ordercount].quantity = num1;
+            orders[ordercount].price = sf * num1;
+
+            total_price += orders[ordercount].price;
             ordercount += num1;
             break;
         }
@@ -283,7 +305,11 @@ void fries(int& ordercount) {    // &ordercount means address of the variable in
             int num2;
             cin >> num2;
 
-               total_price += num2 * cf;
+                 orders[ordercount].itemName = "Curly Fries";
+            orders[ordercount].quantity = num2;
+            orders[ordercount].price = cf * num2;
+
+            total_price += orders[ordercount].price;
             ordercount += num2;
             break;
         }
@@ -291,7 +317,11 @@ void fries(int& ordercount) {    // &ordercount means address of the variable in
             cout << "How many mayo garlic fries do you want? ";
             int num3;
             cin >> num3;
-            total_price += num3 * mgf;
+           orders[ordercount].itemName = "Mayo Garlic Fries";
+            orders[ordercount].quantity = num3;
+            orders[ordercount].price = mgf * num3;
+
+            total_price += orders[ordercount].price;
             ordercount += num3;
             break;
         }
@@ -299,7 +329,7 @@ void fries(int& ordercount) {    // &ordercount means address of the variable in
     } while (choice != 0);
 }
 
-void drinks(int& ordercount) {
+void drinks(order_detail orders[],int &ordercount) {
     cout << "Drinks: " << endl;
     cout << "1.Coca Cola         Rs200" << endl;
     int cc = 200;
@@ -324,7 +354,11 @@ void drinks(int& ordercount) {
             cout << "How many coca colas do you want? ";
             int num1;
             cin >> num1;
-            total_price += num1 * cc;
+             orders[ordercount].itemName = "Cola Cola ";
+            orders[ordercount].quantity = num1;
+            orders[ordercount].price = cc * num1;
+
+            total_price += orders[ordercount].price;
             ordercount += num1;
             break;
         }
@@ -372,7 +406,7 @@ void drinks(int& ordercount) {
     } while (choice != 0);
 }
 
-void desserts(int& ordercount) {
+void desserts(order_detail orders[],int &ordercount) {
     cout << "Desserts: " << endl;
     cout << "1.Molten Lava Cake         Rs600" << endl;
     int mlc = 600;
