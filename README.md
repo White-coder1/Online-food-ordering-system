@@ -106,13 +106,14 @@ int registration(customer_detail customers[], int& customerCount) {
     cout << "**************************REGISTRATION**************************" << endl;
     customer_detail newCustomer;
   
-    cout << "Enter your name: ";
+    cout << "Enter your name: "
     cin.ignore();
     getline(cin, newCustomer.name);
     
     cout << "Enter your email address: ";
-    cin >> newCustomer.email;
-
+    cin.ignore();  
+    getline(cin, newCustomer.email);
+    
     cout << "Enter your password: ";
     cin >> newCustomer.password;
 
@@ -137,6 +138,7 @@ int login(customer_detail customers[], int customerCount) {
 
     cout << "**************************LOGIN**************************" << endl;
     cout << "Enter your email: ";
+    string  login_email;
     cin.ignore();  
     getline(cin, login_email);
 
