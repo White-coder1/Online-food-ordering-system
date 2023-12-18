@@ -39,7 +39,7 @@ int main() {
     int orderCount = 0;
     int loggedInCustomerIndex = 0;
 
-    cout << "* Welcome to Spicy Kitchen *" << endl;
+    cout << "**************************Welcome to Spicy Kitchen**************************" << endl;
     cout << "If you are an existing user, enter 'l' for login." << endl;
     cout << "If you don't have an account, enter 'r' for registration." << endl;
 
@@ -102,7 +102,7 @@ int main() {
 }                      
 
 int registration(customer_detail customers[], int& customerCount) {
-    cout << "REGISTRATION" << endl;
+    cout << "**************************REGISTRATION**************************" << endl;
     customer_detail newCustomer;
 
     cout << "Enter your email address: ";
@@ -130,7 +130,7 @@ int registration(customer_detail customers[], int& customerCount) {
 int login(customer_detail customers[], int customerCount) {
     int loggedInCustomerIndex = -1;
 
-    cout << "LOGIN" << endl;
+    cout << "**************************LOGIN**************************" << endl;
     cout << "Enter your email: ";
     string login_email;
     cin >> login_email;
@@ -141,7 +141,7 @@ int login(customer_detail customers[], int customerCount) {
     cin >> login_password;
 
     for (int i = 0; i < customerCount; ++i) {
-        if (login_name == customers[i].name && login_password == customers[i].password) {
+        if (login_email == customers[i].email && login_password == customers[i].password) {
             loggedInCustomerIndex = i;
             break;
         }
@@ -171,7 +171,7 @@ string getDeliveryOption() {
 }
 
 void generateReceipt(order_detail orders[], int orderCount, string deliveryOption, const customer_detail& customer) {
-    cout << "\n** Receipt **\n";
+    cout << "\n**************************Receipt**************************\n";
 
     if (orderCount == 0) {
         cout << "No items ordered.\n";
@@ -192,7 +192,7 @@ void generateReceipt(order_detail orders[], int orderCount, string deliveryOptio
 }
 
 void displayMenu() {
-    cout << "* Menu **" << endl;
+    cout << "**************************Menu**************************" << endl;
     cout << " ENTER 1 TO display burgers " << endl;
     cout << " ENTER 2 TO display fries " << endl;
     cout << " ENTER 3 TO display drinks " << endl;
