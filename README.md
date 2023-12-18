@@ -419,7 +419,7 @@ void drinks(order_detail orders[],int &ordercount) {
             cout << "How many pina coladas do you want? ";
             int num6;
             cin >> num6;
-          orders[ordercount].itemName = "Chicken Burger";
+          orders[ordercount].itemName = "Pina Colada";
             orders[ordercount].quantity = num6;
             orders[ordercount].price = pc * num6;
 
