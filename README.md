@@ -7,7 +7,6 @@ const int MAX_CUSTOMERS = 1000;//
 const int MAX_ORDERS = 1000;//
 
 struct customer_detail {
-    string name;
     string email;
     string password;
     string address;
@@ -106,10 +105,6 @@ int registration(customer_detail customers[], int& customerCount) {
     cout << "REGISTRATION" << endl;
     customer_detail newCustomer;
 
-    cout << "Enter your name: ";
-    cin.ignore();
-    getline(cin, newCustomer.name);
-
     cout << "Enter your email address: ";
     cin >> newCustomer.email;
 
@@ -136,9 +131,9 @@ int login(customer_detail customers[], int customerCount) {
     int loggedInCustomerIndex = -1;
 
     cout << "LOGIN" << endl;
-    cout << "Enter your name: ";
-    string login_name;
-    cin >> login_name;
+    cout << "Enter your email: ";
+    string login_email;
+    cin >> login_email;
 
 
     cout << "Enter your password: ";
