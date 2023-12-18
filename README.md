@@ -106,7 +106,7 @@ int registration(customer_detail customers[], int& customerCount) {
     cout << "**************************REGISTRATION**************************" << endl;
     customer_detail newCustomer;
   
-    cout << "Enter your name: "
+    cout << "Enter your name: ";
     cin.ignore();
     getline(cin, newCustomer.name);
     
