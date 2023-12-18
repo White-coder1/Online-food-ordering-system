@@ -240,7 +240,6 @@ void burgers(order_detail orders[],int &ordercount) {
             total_price += orders[ordercount].price;
             ordercount += num2;
             break;
-            break;
         }
         case 3: {
             cout << "How many spicy chicken burgers do you want? ";
@@ -380,6 +379,7 @@ void drinks(order_detail orders[],int &ordercount) {
 
             total_price += orders[ordercount].price;
             ordercount += num3;
+            break;
         }
         case 4: {
             cout << "How many mineral waters do you want? ";
