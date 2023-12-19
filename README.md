@@ -12,12 +12,14 @@ struct customer_detail {
     string email;
     string password;
     string address;
+    string review;
 };
 
 struct order_detail {
     string itemName;
     int quantity;
     float price;
+    int rating;
 };
 
 float total_price = 0.0;
@@ -31,6 +33,8 @@ void generateReceipt(order_detail orders[], int orderCount, string deliveryOptio
 int registration(customer_detail customers[], int& customerCount);
 int login(customer_detail customers[], int customerCount);
 string getDeliveryOption();
+void rateItems(order_detail orders[], int orderCount);
+void addReview(customer_detail& customer);
 
 int main() {
     customer_detail customers[MAX_CUSTOMERS];
@@ -91,6 +95,8 @@ int main() {
                 break;
             case 0:
                 generateReceipt(orders, orderCount, getDeliveryOption(), customers[loggedInCustomerIndex]);
+                rateItems(orders, orderCount); // Collect ratings before exiting
+                addReview(customers[loggedInCustomerIndex]);
                 ordering = false;//set the flag to exit the ordering loop.
                 break;
             default:
@@ -202,6 +208,15 @@ void generateReceipt(order_detail orders[], int orderCount, string deliveryOptio
     }
     cout << "Delivery Option: " << deliveryOption << endl;
     cout << "Total Price: Rs" << total_price << endl;
+  
+    // Apply discount if total bill exceeds 2000
+
+    if (total_price > 2000) {
+        float discountAmount = total_price*0.1;
+        total_price -= discountAmount;
+        cout << "Discount Applied (10%): -Rs" discountAmount << endl;
+    }
+    cout << "Final Amount: Rs" << total_price << endl;
 }
 
 void displayMenu() {
@@ -211,6 +226,32 @@ void displayMenu() {
     cout << " ENTER 3 TO display drinks " << endl;
     cout << " ENTER 4 TO display desserts " << endl;
     cout << " ENTER 0 TO finish ordering " << endl;
+}
+
+void rateItems(order_detail orders [], int orderCount) {
+    cout << "\nRate your ordered items (1 to 5 stars):\n";
+    for (int i = 0; i < orderCount; ++i)
+    {
+        cout << "Item: " << orders[i].itemName << " - ";
+        int rating;
+        cin >> rating;
+
+        // Validate rating
+        if (rating >= 1 && rating <= 5) {
+             orders[i].rating = rating;
+        } else {
+             cout << "Invalid rating. Pleaee enter a rating between 1 and 5" << endl;
+             --i; // Retry the same item's rating
+        }
+     }
+}
+
+void addReview(customer_detail& customer) {
+    cout << "Please enter your review: ";
+    cin.ignore();
+    getline(cin, customer.review);
+
+    cout << "Thank you for your review!" << endl;
 }
 
 void burgers(order_detail orders[],int &ordercount) {
