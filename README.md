@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <cctype>
-include <Studio.h>
 
 using namespace std;
 
