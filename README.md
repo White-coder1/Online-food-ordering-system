@@ -214,7 +214,7 @@ void generateReceipt(order_detail orders[], int orderCount, string deliveryOptio
     if (total_price > 2000) {
         float discountAmount = total_price*0.1;
         total_price -= discountAmount;
-        cout << "Discount Applied (10%): -Rs" discountAmount << endl;
+        cout << "Discount Applied (10%): -Rs"<< discountAmount << endl;
     }
     cout << "Final Amount: Rs" << total_price << endl;
 }
@@ -322,7 +322,7 @@ void burgers(order_detail orders[],int & orderCount) {
         }
     } while (choice != 0);
 }
-void fries(order_detail orders[],int &ordercount) {    // &ordercount means address of the variable in main/ it would make changes to the main variable too directly
+void fries(order_detail orders[],int &orderCount) {    // &ordercount means address of the variable in main/ it would make changes to the main variable too directly
     cout << "Fries: " << endl;
     cout << "1. Simple Fries      Rs350" << endl;
     int sf = 350;
