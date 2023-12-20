@@ -475,7 +475,7 @@ void drinks(order_detail orders[],int &orderCount) {
     } while (choice != 0);
 }
 
-void desserts(order_detail orders[],int &ordercount) {
+void desserts(order_detail orders[],int &orderCount) {
     cout << "Desserts: " << endl;
     cout << "1.Molten Lava Cake         Rs600" << endl;
     int mlc = 600;
