@@ -292,7 +292,7 @@ void burgers(order_detail orders[],int & orderCount) {
             orders[orderCount].price = bb * num2;
 
             total_price += orders[orderCount].price;
-            ordercount += num2;
+            orderCount += num2;
             break;
         }
         case 3: {
@@ -407,7 +407,7 @@ void drinks(order_detail orders[],int &orderCount) {
             orders[orderCount].quantity = num1;
             orders[orderCount].price = cc * num1;
 
-            total_price += orders[ordercount].price;
+            total_price += orders[orderCount].price;
             orderCount += num1;
             break;
         }
@@ -503,7 +503,7 @@ void desserts(order_detail orders[],int &ordercount) {
             orders[orderCount].price = mlc * num1;
 
             total_price += orders[orderCount].price;
-            ordercount += num1;
+            orderCount += num1;
             break;
         }
         case 2: {
@@ -515,7 +515,7 @@ void desserts(order_detail orders[],int &ordercount) {
             orders[orderCount].price = lcc * num2;
 
             total_price += orders[orderCount].price;
-            ordercount += num2;
+            orderCount += num2;
             break;
         }
         case 3: {
@@ -527,7 +527,7 @@ void desserts(order_detail orders[],int &ordercount) {
             orders[orderCount].price = rvc * num3;
 
             total_price += orders[orderCount].price;
-            ordercount += num3;
+            orderCount += num3;
             break;
         }
         case 4: {
@@ -539,7 +539,7 @@ void desserts(order_detail orders[],int &ordercount) {
             orders[orderCount].price = cs* num4;
 
             total_price += orders[orderCount].price;
-            ordercount += num4;
+            orderCount += num4;
             break;
         }
         case 5: {
