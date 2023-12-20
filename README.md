@@ -254,7 +254,7 @@ void addReview(customer_detail& customer) {
     cout << "Thank you for your review!" << endl;
 }
 
-void burgers(order_detail orders[],int &ordercount) {
+void burgers(order_detail orders[],int & orderCount) {
     cout << "Burgers: " << endl;
     cout << "1. Chicken Burger                  Rs500" << endl;
     int chb = 500;
@@ -275,11 +275,11 @@ void burgers(order_detail orders[],int &ordercount) {
             cout << "How many chicken burgers do you want? ";
             int num1;
             cin >> num1;
-            orders[ordercount].itemName = "Chicken Burger";
-            orders[ordercount].quantity = num1;
-            orders[ordercount].price = chb * num1;
+            orders[orderCount].itemName = "Chicken Burger";
+            orders[orderCount].quantity = num1;
+            orders[orderCount].price = chb * num1;
 
-            total_price += orders[ordercount].price;
+            total_price += orders[orderCount].price;
             ordercount += num1;
             break;
         }
@@ -287,11 +287,11 @@ void burgers(order_detail orders[],int &ordercount) {
             cout << "How many beef burgers do you want? ";
             int num2;
             cin >> num2;
-            orders[ordercount].itemName = "Beef Burger";
-            orders[ordercount].quantity = num2;
-            orders[ordercount].price = bb * num2;
+            orders[orderCount].itemName = "Beef Burger";
+            orders[orderCount].quantity = num2;
+            orders[orderCount].price = bb * num2;
 
-            total_price += orders[ordercount].price;
+            total_price += orders[orderCount].price;
             ordercount += num2;
             break;
         }
@@ -299,11 +299,11 @@ void burgers(order_detail orders[],int &ordercount) {
             cout << "How many spicy chicken burgers do you want? ";
             int num3;
             cin >> num3;
-         orders[ordercount].itemName = " Spicy Chicken Burger";
-            orders[ordercount].quantity = num3;
-            orders[ordercount].price = scb * num3;
+            orders[orderCount].itemName = " Spicy Chicken Burger";
+            orders[orderCount].quantity = num3;
+            orders[orderCount].price = scb * num3;
 
-            total_price += orders[ordercount].price;
+            total_price += orders[orderCount].price;
             ordercount += num3;
             break;
         }
@@ -311,12 +311,12 @@ void burgers(order_detail orders[],int &ordercount) {
             cout << "How many fish-o-fillet burgers do you want? ";
             int num4;
             cin >> num4;
-           orders[ordercount].itemName = "fish-0-fillet Burger";
-            orders[ordercount].quantity = num4;
-            orders[ordercount].price = ffb * num4;
+            orders[orderCount].itemName = "fish-0-fillet Burger";
+            orders[orderCount].quantity = num4;
+            orders[orderCount].price = ffb * num4;
 
-            total_price += orders[ordercount].price;
-            ordercount += num4;
+            total_price += orders[orderCount].price;
+            orderCount += num4;
             break;
         }
         }
@@ -341,12 +341,12 @@ void fries(order_detail orders[],int &ordercount) {    // &ordercount means addr
             cout << "How many simple fries do you want? ";
             int num1;
             cin >> num1;
-         orders[ordercount].itemName = "simple fries";
-            orders[ordercount].quantity = num1;
-            orders[ordercount].price = sf * num1;
+            orders[orderCount].itemName = "simple fries";
+            orders[orderCount].quantity = num1;
+            orders[orderCount].price = sf * num1;
 
-            total_price += orders[ordercount].price;
-            ordercount += num1;
+            total_price += orders[orderCount].price;
+            orderCount += num1;
             break;
         }
         case 2: {
@@ -354,11 +354,11 @@ void fries(order_detail orders[],int &ordercount) {    // &ordercount means addr
             int num2;
             cin >> num2;
 
-                 orders[ordercount].itemName = "Curly Fries";
-            orders[ordercount].quantity = num2;
-            orders[ordercount].price = cf * num2;
+            orders[orderCount].itemName = "Curly Fries";
+            orders[orderCount].quantity = num2;
+            orders[orderCount].price = cf * num2;
 
-            total_price += orders[ordercount].price;
+            total_price += orders[orderCount].price;
             ordercount += num2;
             break;
         }
@@ -366,11 +366,11 @@ void fries(order_detail orders[],int &ordercount) {    // &ordercount means addr
             cout << "How many mayo garlic fries do you want? ";
             int num3;
             cin >> num3;
-           orders[ordercount].itemName = "Mayo Garlic Fries";
-            orders[ordercount].quantity = num3;
-            orders[ordercount].price = mgf * num3;
+           orders[orderCount].itemName = "Mayo Garlic Fries";
+            orders[orderCount].quantity = num3;
+            orders[orderCount].price = mgf * num3;
 
-            total_price += orders[ordercount].price;
+            total_price += orders[orderCount].price;
             ordercount += num3;
             break;
         }
@@ -378,7 +378,7 @@ void fries(order_detail orders[],int &ordercount) {    // &ordercount means addr
     } while (choice != 0);
 }
 
-void drinks(order_detail orders[],int &ordercount) {
+void drinks(order_detail orders[],int &orderCount) {
     cout << "Drinks: " << endl;
     cout << "1.Coca Cola         Rs200" << endl;
     int cc = 200;
@@ -403,9 +403,9 @@ void drinks(order_detail orders[],int &ordercount) {
             cout << "How many coca colas do you want? ";
             int num1;
             cin >> num1;
-             orders[ordercount].itemName = "Cola Cola ";
-            orders[ordercount].quantity = num1;
-            orders[ordercount].price = cc * num1;
+             orders[orderCount].itemName = "Cola Cola ";
+            orders[orderCount].quantity = num1;
+            orders[orderCount].price = cc * num1;
 
             total_price += orders[ordercount].price;
             ordercount += num1;
@@ -415,11 +415,11 @@ void drinks(order_detail orders[],int &ordercount) {
             cout << "How many sprites do you want? ";
             int num2;
             cin >> num2;
-            orders[ordercount].itemName = "Sprite";
-            orders[ordercount].quantity = num2;
-            orders[ordercount].price = spr * num2;
+            orders[orderCount].itemName = "Sprite";
+            orders[orderCount].quantity = num2;
+            orders[orderCount].price = spr * num2;
 
-            total_price += orders[ordercount].price;
+            total_price += orders[orderCount].price;
             ordercount += num2;
             break;
         }
@@ -427,11 +427,11 @@ void drinks(order_detail orders[],int &ordercount) {
             cout << "How many fantas do you want? ";
             int num3;
             cin >> num3;
-            orders[ordercount].itemName = "Fanta";
-            orders[ordercount].quantity = num3;
-            orders[ordercount].price =  fant* num3;
+            orders[orderCount].itemName = "Fanta";
+            orders[orderCount].quantity = num3;
+            orders[orderCount].price =  fant* num3;
 
-            total_price += orders[ordercount].price;
+            total_price += orders[orderCount].price;
             ordercount += num3;
             break;
         }
@@ -439,11 +439,11 @@ void drinks(order_detail orders[],int &ordercount) {
             cout << "How many mineral waters do you want? ";
             int num4;
             cin >> num4;
-           orders[ordercount].itemName = "Mineral water";
-            orders[ordercount].quantity = num4;
-            orders[ordercount].price = mw * num4;
+           orders[orderCount].itemName = "Mineral water";
+            orders[orderCount].quantity = num4;
+            orders[orderCount].price = mw * num4;
 
-            total_price += orders[ordercount].price;
+            total_price += orders[orderCount].price;
             ordercount += num4;
             break;
         }
@@ -451,23 +451,23 @@ void drinks(order_detail orders[],int &ordercount) {
             cout << "How many mint margaritas do you want? ";
             int num5;
             cin >> num5;
-            orders[ordercount].itemName = "Mint Margarita ";
-            orders[ordercount].quantity = num5;
-            orders[ordercount].price = mm * num5;
+            orders[orderCount].itemName = "Mint Margarita ";
+            orders[orderCount].quantity = num5;
+            orders[orderCount].price = mm * num5;
 
-            total_price += orders[ordercount].price;
-            ordercount += num5;
+            total_price += orders[orderCount].price;
+            orderCount += num5;
             break;
         }
         case 6: {
             cout << "How many pina coladas do you want? ";
             int num6;
             cin >> num6;
-          orders[ordercount].itemName = "Pina Colada";
-            orders[ordercount].quantity = num6;
-            orders[ordercount].price = pc * num6;
+            orders[orderCount].itemName = "Pina Colada";
+            orders[orderCount].quantity = num6;
+            orders[orderCount].price = pc * num6;
 
-            total_price += orders[ordercount].price;
+            total_price += orders[orderCount].price;
             ordercount += num6;
             break;
         }
