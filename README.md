@@ -240,7 +240,7 @@ void rateItems(order_detail orders [], int orderCount) {
         if (rating >= 1 && rating <= 5) {
              orders[i].rating = rating;
         } else {
-             cout << "Invalid rating. Pleaee enter a rating between 1 and 5" << endl;
+             cout << "Invalid rating. Please enter a rating between 1 and 5" << endl;
              --i; // Retry the same item's rating
         }
      }
