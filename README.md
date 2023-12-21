@@ -232,6 +232,7 @@ void rateItems(order_detail orders [], int orderCount) {
     cout << "\nRate your ordered items (1 to 5 stars):\n";
     for (int i = 0; i < orderCount; ++i)
     {
+        if (orders[i].quantity > 0 && orders[i].rating == 0) {
         cout << "Item: " << orders[i].itemName << " - ";
         int rating;
         cin >> rating;
@@ -243,6 +244,7 @@ void rateItems(order_detail orders [], int orderCount) {
              cout << "Invalid rating. Please enter a rating between 1 and 5" << endl;
              --i; // Retry the same item's rating
         }
+       }
      }
 }
 
